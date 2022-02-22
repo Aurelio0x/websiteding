@@ -1,0 +1,38 @@
+<?php
+$host       = 'localhost';
+$user   = 'root';
+$password   = '';
+$database   = 'lisakunst';
+
+$db = mysqli_connect($host, $user, $password, $database)
+or die("Error: " . mysqli_connect_error());
+
+
+/**
+ * Function: getLesson
+ * Description: This function gets the lesson with the
+ * given lessonId from the database table.
+ */
+
+function getCommissie(mysqli $db, $id) {
+    // Prepare query and execute
+    $query = "SELECT * FROM commissieaanvraag WHERE id = '$id'";
+    $result = mysqli_query($db, $query) or die ('Error: ' . $query );
+
+    return $result;
+}
+
+/**
+ * Function: updateReservation
+ * Description: This function updates the reservation
+ * with the given id from the database table.
+ */
+function updateCommissie(mysqli $db, $id, $surname, $familyname, $birthdate, $email, $description, $costs) {
+    // Prepare query and execute
+    $query = "UPDATE commissieaanvraag
+                  SET voornaam='$surname', achternaam='$familyname', geboortedatum='$birthdate', email='$email', omschrijving='$description', kostenEuro= '$costs'
+                  WHERE id=$id";
+    $result = mysqli_query($db, $query) or die('Error: '.mysqli_error($db). ' with query ' . $query);
+
+    return $result;
+}
