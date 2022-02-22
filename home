@@ -1,0 +1,102 @@
+<?php
+include "config.php";
+
+// Check user login or not
+if(!isset($_SESSION['uname'])){
+    header('Location: index.php');
+}
+
+// logout
+if(isset($_POST['but_logout'])){
+    session_destroy();
+    header('Location: index.php');
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+</style>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../x2/css/style.css"/>
+    <title>Lisa's Kunst</title>
+</head>
+<body>
+
+
+<header>Lisa's Kunst</header>
+
+<main>
+    <section>
+        <div class="tekst1">
+            <p>
+                Hallo, ik ben Lisa van Barneveld, een studente uit Delft. Echter besteed ik een "Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+
+        <div class="picturebuttons">
+            <figure>
+                <div class="pic1">
+                    <a href="../x2/galerij.html">
+                        <img src="images/b_gallerij.png"  >
+                    </a>
+                </div>
+                <div class="pic2">
+                    <a class="knop2" href="../x2/overmij.html">
+                        <img src="images/b_overmij.png">
+                    </a>
+                </div>
+                <div class="pic3">
+                    <a class="knop3" href="../x2/commissie.php">
+                        <img src="images/b_commissies.png">
+                    </a>
+                </div>
+            </figure>
+        </div>
+
+        <div class="picturebuttons2">
+            <figure>
+                <div class="pic4">
+                    <a class="knop4" href="../x2/contact.html">
+                        <img src="images/b_contact.png">
+                    </a>
+                    <figure/>
+                </div>
+
+                <div class="picturebuttons2">
+                    <figure>
+                        <div class="pic7">
+                            <a class="knop4" href="../x1/index.php">
+                                <img src="images/b_overzicht.png">
+                            </a>
+                            <figure/>
+                        </div>
+    </section>
+
+
+
+</main>
+
+
+<footer>
+    <p>
+        <a href="https://google.com">FAQ</a>
+    </p>
+    <p>
+        <a href="https://bol.com">T&C</a>
+    </p>
+    <form method='post' action="">
+        <input type="submit" value="Logout" name="but_logout">
+    </form>
+</footer>
+
+
+
+</body>
+</html>
