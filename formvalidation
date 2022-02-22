@@ -1,0 +1,26 @@
+<?php
+//Check if data is valid & generate error if not so
+$errors = [];
+if ($surname == "") {
+    $errors['surname'] = 'Uw voornaam moet worden ingevuld';
+}
+if ($familyname == "") {
+    $errors['familyname'] = 'Uw achternaam moet worden ingevuld';
+}
+if ($birthdate == "") {
+    $errors['birthdate'] = 'Uw geboortedatum moet worden ingevuld';
+}
+// this error message wil overwrite the previous error when year is empty
+if ($email == "") {
+    $errors['email'] = 'Uw E-Mail moet worden ingevuld';
+}
+// this error message wil overwrite the previous error when tracks is empty
+if ($description == "") {
+    $errors['description'] = 'U moet een omschrijving van het gewenste kunstwerk benoemen';
+}
+if ($costs == "") {
+    $errors['costs'] = 'U moet een schatting van de verwachtte kosten geven';
+}
+if (!is_numeric($costs)) {
+    $errors['costs'] = 'De kosten moeten uit getallen bestaan';
+}
